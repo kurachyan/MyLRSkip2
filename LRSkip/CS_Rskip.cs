@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LRSkip
 {
-    class CS_Rskip
+    public class CS_Rskip
     {
         #region 共有領域
         private String _wbuf;
