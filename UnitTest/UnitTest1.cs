@@ -10,10 +10,12 @@ namespace UnitTest
         [TestMethod]
         public void TestMethod()
         {
+            #region 対象：削除対象なし
             String KeyWord = @"This is a Pen.";
             String Result;
+            #endregion
 
-            LRSkip.
+            #region Ｌｓｋｉｐ：削除対象なし
             CS_Lskip lskip = new CS_Lskip();
             lskip.Clear();
             lskip.Wbuf = KeyWord;
@@ -21,7 +23,9 @@ namespace UnitTest
             Result = lskip.Wbuf;
 
             Assert.AreEqual(@"This is a Pen.", Result, @"lskip[This is a Pen.] = [This is a Pen.]");
+            #endregion
 
+            #region Ｒｓｋｉｐ：削除対象なし
             CS_Rskip rskip = new CS_Rskip();
             rskip.Clear();
             rskip.Wbuf = KeyWord;
@@ -29,6 +33,7 @@ namespace UnitTest
             Result = rskip.Wbuf;
 
             Assert.AreEqual(@"This is a Pen.", Result, @"rskip[This is a Pen.] = [This is a Pen.]");
+            #endregion
         }
     }
 
@@ -38,9 +43,12 @@ namespace UnitTest
         [TestMethod]
         public void TestMethod()
         {
+            #region 対象：左右空白５文字
             String KeyWord = @"     This is a Pen.     ";
             String Result;
+            #endregion
 
+            #region Ｌｓｋｉｐ：左空白５文字削除
             CS_Lskip lskip = new CS_Lskip();
             lskip.Clear();
             lskip.Wbuf = KeyWord;
@@ -48,7 +56,9 @@ namespace UnitTest
             Result = lskip.Wbuf;
 
             Assert.AreEqual(@"This is a Pen.     ", Result, @"lskip[     This is a Pen.     ] = [This is a Pen.     ]");
+            #endregion
 
+            #region Ｒｓｋｉｐ：右空白５文字削除対象
             CS_Rskip rskip = new CS_Rskip();
             rskip.Clear();
             rskip.Wbuf = KeyWord;
@@ -56,7 +66,9 @@ namespace UnitTest
             Result = rskip.Wbuf;
 
             Assert.AreEqual(@"     This is a Pen.", Result, @"rskip[     This is a Pen.     ] = [     This is a Pen.]");
+            #endregion
 
+            #region Ｌｓｋｉｐ・Ｒｓｋｉｐ：左右空白５文字削除対象
             lskip.Clear();
             rskip.Clear();
             lskip.Wbuf = KeyWord;
@@ -66,6 +78,7 @@ namespace UnitTest
             Result = rskip.Wbuf;
 
             Assert.AreEqual(@"This is a Pen.", Result, @"lskip & rskip[     This is a Pen.     ] = [This is a Pen.]");
+            #endregion
         }
     }
 }
