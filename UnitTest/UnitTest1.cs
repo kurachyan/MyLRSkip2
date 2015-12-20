@@ -8,7 +8,7 @@ namespace UnitTest
     public class LRSkip_UnitTest1
     {
         [TestMethod]
-        public void TestMethod()
+        public void TestMethod1()
         {
             #region 対象：削除対象なし
             String KeyWord = @"This is a Pen.";
@@ -41,14 +41,14 @@ namespace UnitTest
     public class LRSkip_UnitTest2
     {
         [TestMethod]
-        public void TestMethod()
+        public void TestMethod2()
         {
             #region 対象：左右空白５文字
             String KeyWord = @"     This is a Pen.     ";
             String Result;
             #endregion
 
-            #region Ｌｓｋｉｐ：左空白５文字削除
+            #region Ｌｓｋｉｐ：左空白５文字削除対象
             CS_Lskip lskip = new CS_Lskip();
             lskip.Clear();
             lskip.Wbuf = KeyWord;
