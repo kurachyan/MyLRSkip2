@@ -57,9 +57,38 @@ namespace LRSkip
 
                 if (_wbuf.Length == 0 || _wbuf == null)
                 {   // バッファー情報無し
-                    this.Clear();           // 作業領域の初期化
+                    Clear();           // 作業領域の初期化
                 }
 
+            }
+        }
+
+        public void Exec(String msg)
+        {   // 左側余白情報を削除
+            Setbuf(msg);                 // 入力内容の作業領域設定
+
+            if (!_empty)
+            {   // バッファーに実装有り
+                _wbuf = _wbuf.TrimStart(_trim);       // 左側余白情報を削除
+
+                if (_wbuf.Length == 0 || _wbuf == null)
+                {   // バッファー情報無し
+                    Clear();           // 作業領域の初期化
+                }
+
+            }
+        }
+
+        private void Setbuf(String _strbuf)
+        {   // [_wbuf]情報設定
+            _wbuf = _strbuf;
+            if (_wbuf == null)
+            {   // 設定情報は無し？
+                _empty = true;
+            }
+            else
+            {
+                _empty = false;
             }
         }
         #endregion

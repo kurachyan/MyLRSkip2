@@ -25,11 +25,27 @@ namespace UnitTest
             Assert.AreEqual(@"This is a Pen.", Result, @"lskip[This is a Pen.] = [This is a Pen.]");
             #endregion
 
+            #region Ｌｓｋｉｐ：削除対象なし２
+            lskip.Clear();
+            lskip.Exec(KeyWord);
+            Result = lskip.Wbuf;
+
+            Assert.AreEqual(@"This is a Pen.", Result, @"lskip[This is a Pen.] = [This is a Pen.]");
+            #endregion
+
             #region Ｒｓｋｉｐ：削除対象なし
             CS_Rskip rskip = new CS_Rskip();
             rskip.Clear();
             rskip.Wbuf = KeyWord;
             rskip.Exec();
+            Result = rskip.Wbuf;
+
+            Assert.AreEqual(@"This is a Pen.", Result, @"rskip[This is a Pen.] = [This is a Pen.]");
+            #endregion
+
+            #region Ｒｓｋｉｐ：削除対象なし２
+            rskip.Clear();
+            rskip.Exec(KeyWord);
             Result = rskip.Wbuf;
 
             Assert.AreEqual(@"This is a Pen.", Result, @"rskip[This is a Pen.] = [This is a Pen.]");
