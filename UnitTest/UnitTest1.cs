@@ -50,6 +50,24 @@ namespace UnitTest
 
             Assert.AreEqual(@"This is a Pen.", Result, @"rskip[This is a Pen.] = [This is a Pen.]");
             #endregion
+
+            #region ＬＲｓｋｉｐ：削除対象なし
+            CS_LRskip lrskip = new CS_LRskip();
+            lrskip.Clear();
+            lrskip.Wbuf = KeyWord;
+            lrskip.Exec();
+            Result = lrskip.Wbuf;
+
+            Assert.AreEqual(@"This is a Pen.", Result, @"rskip[This is a Pen.] = [This is a Pen.]");
+            #endregion
+
+            #region ＬＲｓｋｉｐ：削除対象なし２
+            lrskip.Clear();
+            lrskip.Exec(KeyWord);
+            Result = lrskip.Wbuf;
+
+            Assert.AreEqual(@"This is a Pen.", Result, @"rskip[This is a Pen.] = [This is a Pen.]");
+            #endregion
         }
     }
 
@@ -92,6 +110,15 @@ namespace UnitTest
             rskip.Wbuf = lskip.Wbuf;
             rskip.Exec();
             Result = rskip.Wbuf;
+
+            Assert.AreEqual(@"This is a Pen.", Result, @"lskip & rskip[     This is a Pen.     ] = [This is a Pen.]");
+            #endregion
+
+            #region ＬＲｓｋｉｐ：左右空白５文字削除対象
+            CS_LRskip lrskip = new CS_LRskip();
+            lrskip.Clear();
+            lrskip.Exec(KeyWord);
+            Result = lrskip.Wbuf;
 
             Assert.AreEqual(@"This is a Pen.", Result, @"lskip & rskip[     This is a Pen.     ] = [This is a Pen.]");
             #endregion

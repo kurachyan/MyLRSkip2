@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LRSkip
 {
-    public class CS_Rskip
+    public class CS_LRskip
     {
         #region 共有領域
         private String _wbuf;
@@ -34,12 +34,13 @@ namespace LRSkip
         #endregion
 
         #region コンストラクタ
-        public CS_Rskip()
+        public CS_LRskip()
         {   // コンストラクタ
             _wbuf = null;       // 設定情報無し
             _empty = true;
         }
         #endregion
+
 
         #region モジュール
         public void Clear()
@@ -48,11 +49,11 @@ namespace LRSkip
             _empty = true;
         }
 
-        // '14.01.07 : 評価対象に"￥ｒ"追加
         public void Exec()
-        {   // 右側余白情報を削除（固定区切り）
+        {   // 両側余白情報を削除（固定区切り）
             if (!_empty)
             {   // バッファーに実装有り
+                _wbuf = _wbuf.TrimStart(_trim);     // 左側余白情報を削除
                 _wbuf = _wbuf.TrimEnd(_trim);       // 右側余白情報を削除
 
                 if (_wbuf.Length == 0 || _wbuf == null)
@@ -62,9 +63,10 @@ namespace LRSkip
             }
         }
         public void Exec(char[] __trim)
-        {   // 右側余白情報を削除（指定区切り）
+        {   // 両側余白情報を削除（指定区切り）
             if (!_empty)
             {   // バッファーに実装有り
+                _wbuf = _wbuf.TrimStart(__trim);      // 左側余白情報を削除
                 _wbuf = _wbuf.TrimEnd(__trim);       // 右側余白情報を削除
 
                 if (_wbuf.Length == 0 || _wbuf == null)
@@ -75,11 +77,12 @@ namespace LRSkip
         }
 
         public void Exec(String msg)
-        {   // 右側余白情報を削除（固定区切り）
+        {   // 両側余白情報を削除（固定区切り）
             Setbuf(msg);                 // 入力内容の作業領域設定
 
             if (!_empty)
             {   // バッファーに実装有り
+                _wbuf = _wbuf.TrimStart(_trim);     // 左側余白情報を削除
                 _wbuf = _wbuf.TrimEnd(_trim);       // 右側余白情報を削除
 
                 if (_wbuf.Length == 0 || _wbuf == null)
@@ -89,11 +92,12 @@ namespace LRSkip
             }
         }
         public void Exec(String msg, char[] __trim)
-        {   // 右側余白情報を削除（指定区切り）
+        {   // 両側余白情報を削除（指定区切り）
             Setbuf(msg);                 // 入力内容の作業領域設定
 
             if (!_empty)
             {   // バッファーに実装有り
+                _wbuf = _wbuf.TrimStart(__trim);     // 左側余白情報を削除
                 _wbuf = _wbuf.TrimEnd(__trim);       // 右側余白情報を削除
 
                 if (_wbuf.Length == 0 || _wbuf == null)
