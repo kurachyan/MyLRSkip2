@@ -75,7 +75,7 @@ namespace LRSkip
                 _wbuf = _wbuf.TrimEnd(__trim);       // 右側余白情報を削除
 */
 
-                _wbuf = _wbuf.Trim(_trim);          // 両側余白情報を削除
+                _wbuf = _wbuf.Trim(__trim);          // 両側余白情報を削除
 
                 if (_wbuf.Length == 0 || _wbuf == null)
                 {   // バッファー情報無し
@@ -114,7 +114,7 @@ namespace LRSkip
                 _wbuf = _wbuf.TrimEnd(__trim);       // 右側余白情報を削除
 */
 
-                _wbuf = _wbuf.Trim(_trim);          // 両側余白情報を削除
+                _wbuf = _wbuf.Trim(__trim);          // 両側余白情報を削除
 
                 if (_wbuf.Length == 0 || _wbuf == null)
                 {   // バッファー情報無し
