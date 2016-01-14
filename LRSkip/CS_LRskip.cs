@@ -53,8 +53,12 @@ namespace LRSkip
         {   // 両側余白情報を削除（固定区切り）
             if (!_empty)
             {   // バッファーに実装有り
+/*
                 _wbuf = _wbuf.TrimStart(_trim);     // 左側余白情報を削除
                 _wbuf = _wbuf.TrimEnd(_trim);       // 右側余白情報を削除
+*/
+
+                _wbuf = _wbuf.Trim(_trim);          // 両側余白情報を削除
 
                 if (_wbuf.Length == 0 || _wbuf == null)
                 {   // バッファー情報無し
@@ -66,8 +70,12 @@ namespace LRSkip
         {   // 両側余白情報を削除（指定区切り）
             if (!_empty)
             {   // バッファーに実装有り
+/*
                 _wbuf = _wbuf.TrimStart(__trim);      // 左側余白情報を削除
                 _wbuf = _wbuf.TrimEnd(__trim);       // 右側余白情報を削除
+*/
+
+                _wbuf = _wbuf.Trim(_trim);          // 両側余白情報を削除
 
                 if (_wbuf.Length == 0 || _wbuf == null)
                 {   // バッファー情報無し
@@ -82,8 +90,12 @@ namespace LRSkip
 
             if (!_empty)
             {   // バッファーに実装有り
+/*
                 _wbuf = _wbuf.TrimStart(_trim);     // 左側余白情報を削除
                 _wbuf = _wbuf.TrimEnd(_trim);       // 右側余白情報を削除
+*/
+
+                _wbuf = _wbuf.Trim(_trim);          // 両側余白情報を削除
 
                 if (_wbuf.Length == 0 || _wbuf == null)
                 {   // バッファー情報無し
@@ -97,8 +109,12 @@ namespace LRSkip
 
             if (!_empty)
             {   // バッファーに実装有り
+/*
                 _wbuf = _wbuf.TrimStart(__trim);     // 左側余白情報を削除
                 _wbuf = _wbuf.TrimEnd(__trim);       // 右側余白情報を削除
+*/
+
+                _wbuf = _wbuf.Trim(_trim);          // 両側余白情報を削除
 
                 if (_wbuf.Length == 0 || _wbuf == null)
                 {   // バッファー情報無し
