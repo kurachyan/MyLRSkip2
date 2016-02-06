@@ -9,8 +9,8 @@ namespace LRSkip
     public class CS_Rskip
     {
         #region 共有領域
-        private String _wbuf;
-        private Boolean _empty;
+        private static String _wbuf;
+        private static Boolean _empty;
         public String Wbuf
         {
             get
@@ -30,7 +30,7 @@ namespace LRSkip
                 }
             }
         }
-        private char[] _trim = { ' ', '\t', '\r', '\n' };
+        private static readonly char[] _trim = { ' ', '\t', '\r', '\n' };
         #endregion
 
         #region コンストラクタ
